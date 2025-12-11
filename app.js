@@ -28,6 +28,7 @@ function app(){
                 const operation = readline.question("do you wanna buy or sell stocks? ")
                 const find = readline.question("enter a name or id ")
                 OperateOnStock(operation,find)
+                continue
             case "0":
                 loop = false
         }
