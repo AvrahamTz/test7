@@ -3,12 +3,13 @@ import { filterStocksByPrice, OperateOnStock, searchStock } from './service.js'
 
 
 function app(){
-    while (true){
+    let loop = true
+    while (loop){
         const choice = readline.question(`
         1 Search for a stock by name or id
         2 Show all stocks above or below a given price
         3 buy or see a stock
-        press any other key to exit...
+        0 exit
         `)
         switch(choice){
             case '1':
@@ -27,7 +28,8 @@ function app(){
                 const operation = readline.question("do you wanna buy or sell stocks? ")
                 const find = readline.question("enter a name or id ")
                 OperateOnStock(operation,find)
-            
+            case "0":
+                loop = false
         }
 
 
