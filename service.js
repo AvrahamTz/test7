@@ -42,14 +42,14 @@ export function OperateOnStock(operation, identifier){
                     }
                 } 
             }else if (operation === "sell"){
-                const buy = Number(readline.question("how many units you wanna sell? "))
+                const sell = Number(readline.question("how many units you wanna sell? "))
                 show.availableStocks += sell
                 show.previousPrices.push(show.currentPrice)
                 show.currentPrice *=  0.95
                 stockMarket.stocks.splice(currentIndex,1,show)
                 for (let stock=0; stock<stockMarket.stocks.length;stock++){
                     if (stockMarket.stocks[stock].category === show.category &&  stock!== currentIndex ){
-                        stockMarket.stocks[stock].previousPrices.push(tockMarket.stocks[stock].currentPrice)
+                        stockMarket.stocks[stock].previousPrices.push(stockMarket.stocks[stock].currentPrice)
                         stockMarket.stocks[stock].currentPrice *= 0.99
                         stockMarket.lastUpdated = new Date()
             }
